@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noha – Tienda online de productos electrónicos</title>
+<meta name="description" content="Noha: compra productos electrónicos online con envío a toda España.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#F4F5F2;--ink:#101312;--accent:#FF6B45;--card:#FFFFFF;--line:#3A3F3C;--err:#B3261E;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Inter,Arial,sans-serif;font-size:17px;line-height:1.55}
+h1,h2,h3,.display{font-family:'Space Grotesk',Arial,sans-serif}
+a{color:inherit}a:hover{opacity:.8}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.logo{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:44px;text-decoration:none;letter-spacing:-.5px}
+.logo span{background:var(--accent);padding:0 6px;margin-left:2px}
+.btn{display:block;text-decoration:none;text-align:center;background:var(--accent);color:var(--ink);padding:14px 20px;border-radius:6px;font-weight:500;border:0;font:inherit;font-weight:500;cursor:pointer;min-height:48px}
+.btn.big{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:20px;padding:16px 20px;width:100%}
+.btn.ghost{background:transparent;border:2px solid var(--ink)}
+header.top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-top:24px;padding-bottom:24px}
+.hero{padding-top:48px;padding-bottom:88px}
+.hero h1{margin:0 0 48px;font-size:clamp(44px,9vw,112px);line-height:1;letter-spacing:-2px}
+.hero .btn{display:inline-block;padding:16px 28px;font-family:'Space Grotesk',Arial,sans-serif;font-size:20px}
+.dark{background:var(--ink);color:var(--ground)}
+.dark .wrap{padding-top:80px;padding-bottom:80px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.dark article{border:1px solid var(--line);border-radius:8px;padding:28px}
+.dark h3{margin:0 0 12px;font-size:clamp(30px,4vw,48px);color:var(--accent);line-height:1.1}
+.dark p{margin:0;color:#E4E7E2;font-size:clamp(20px,2.6vw,28px)}
+.products{padding-top:80px;padding-bottom:40px}
+.products h2{margin:0 0 24px;font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-1px}
+.product{border:2px solid var(--ink);border-radius:8px;padding:28px;background:var(--card);display:flex;flex-direction:column;gap:12px}
+.product h3{margin:0;font-size:26px}
+.product .price{margin:0;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:28px}
+footer.foot{padding-top:40px;padding-bottom:40px;font-size:15px}
+footer.foot b{font-family:'Space Grotesk',Arial,sans-serif}
+/* pedido */
+.order h1{margin:0 0 40px;font-size:clamp(40px,7vw,80px);line-height:1;letter-spacing:-2px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:start}
+.panel{border:2px solid var(--ink);border-radius:8px;padding:32px;background:var(--card)}
+.panel h2{margin:0 0 20px;font-size:28px}
+.opt{display:flex;align-items:center;gap:12px;border:2px solid var(--ink);border-radius:8px;padding:16px;cursor:pointer;margin-bottom:12px}
+.opt input{width:22px;height:22px;accent-color:var(--ink)}
+.opt .n{flex:1;font-weight:500}
+.opt .p{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:22px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-weight:500}
+.field input{font:inherit;padding:12px 14px;border:2px solid var(--ink);border-radius:6px;min-height:48px;background:#fff}
+.field .err{display:none;color:var(--err);font-size:15px}
+.field.bad .err{display:block}
+.field.bad input{border-color:var(--err)}
+.note{margin:24px 0 0;padding:16px;background:var(--ground);border-radius:6px}
+.pay{margin-top:32px;border-top:2px solid var(--ink);padding-top:24px}
+.pay h2{margin-bottom:12px}
+.bizum{background:var(--ink);color:var(--ground);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.bizum p{margin:0}
+.bizum b{color:var(--accent);font-weight:500}
+.bizum button{align-self:flex-start;font:inherit;font-weight:500;background:transparent;color:var(--ground);border:2px solid var(--ground);border-radius:6px;padding:8px 16px;min-height:44px;cursor:pointer}
+.warn{display:none;margin:12px 0 0;color:var(--err);font-weight:500}
+.hidden{display:none !important}
+@media (max-width:480px){.wrap{padding:0 20px}.panel{padding:22px}.logo{font-size:36px}}
+</style>
+</head>
+<body>
+<div id="view-tienda">
+  <div class="wrap">
+    <header class="top"><a href="#tienda" class="logo">No<span>ha</span></a></header>
+    <section class="hero">
+      <h1>Puedes comprar productos en esta página</h1>
+      <a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mohamedarare4@gmail.com&amp;su=Hola%20Noha" target="_blank" rel="noopener">Hablar con el creador de la página</a>
+    </section>
+  </div>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="cards">
+        <article><h3>Envío</h3><p>Envío por toda España. Puede tardar más de un día, depende de dónde vivas.</p></article>
+        <article><h3>Pago seguro</h3><p>pago seguro y no hay devolución</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap products" id="productos">
+    <h2>Productos</h2>
+    <div class="cards">
+      <article class="product"><h3>Reloj eléctrico</h3><p class="price">40€</p><a class="btn" href="#pedido" data-product="reloj">Comprar</a></article>
+      <article class="product"><h3>Airpods 4</h3><p class="price">50€</p><a class="btn" href="#pedido" data-product="airpods">Comprar</a></article>
+      <article class="product"><h3>Auriculares BL108</h3><p class="price">37€</p><a class="btn" href="#pedido" data-product="bl108">Comprar</a></article>
+    </div>
+  </section>
+
+  <footer class="wrap foot"><b>Noha</b></footer>
+</div>
+
+<div id="view-pedido" class="hidden">
+  <div class="wrap">
+    <header class="top">
+      <a href="#tienda" class="logo">No<span>ha</span></a>
+      <a href="#tienda" class="btn ghost" style="padding:10px 20px">Volver a la tienda</a>
+    </header>
+    <main class="order" style="padding-top:24px;padding-bottom:80px">
+      <h1>Haz tu pedido</h1>
+      <div class="panels">
+
+        <section class="panel">
+          <h2>1. Elige tu producto</h2>
+          <label class="opt"><input type="radio" name="producto" value="reloj" checked><span class="n">Reloj eléctrico</span><span class="p">40€</span></label>
+          <label class="opt"><input type="radio" name="producto" value="airpods"><span class="n">Airpods 4</span><span class="p">50€</span></label>
+          <label class="opt"><input type="radio" name="producto" value="bl108"><span class="n">Auriculares BL108</span><span class="p">37€</span></label>
+        </section>
+
+        <section class="panel">
+          <h2>2. Datos de envío</h2>
+          <div class="field" data-f="nombre"><label for="nombre">Nombre completo</label><input id="nombre" type="text" autocomplete="name"><span class="err">Obligatorio</span></div>
+          <div class="field" data-f="email"><label for="email">Correo electrónico</label><input id="email" type="email" autocomplete="email"><span class="err">Obligatorio</span></div>
+          <div class="field" data-f="telefono"><label for="telefono">Teléfono</label><input id="telefono" type="tel" autocomplete="tel"><span class="err">Obligatorio</span></div>
+          <div class="field" data-f="direccion"><label for="direccion">Dirección</label><input id="direccion" type="text" autocomplete="street-address"><span class="err">Obligatorio</span></div>
+          <div class="field" data-f="cp"><label for="cp">Código postal</label><input id="cp" type="text" autocomplete="postal-code"><span class="err">Obligatorio</span></div>
+          <p class="note">Envío por toda España. Puede tardar más de un día, depende de dónde vivas.</p>
+
+          <div class="pay">
+            <h2>3. Paga por Bizum</h2>
+            <p style="margin:0 0 16px">Rellena tus datos de envío y pulsa el botón para ver cómo pagar.</p>
+            <div id="bizum-box" class="hidden">
+              <div class="bizum">
+                <p><b>Bizum al número:</b> +34 644 70 23 93</p>
+                <button type="button" id="copy">Copiar número</button>
+                <p><b>Producto:</b> <span id="prod-nombre"></span> – <span id="prod-precio"></span></p>
+                <p><b>Importe:</b> Tienes que pagar el mismo dinero que te pedimos</p>
+              </div>
+              <a class="btn big" style="margin-top:24px" href="https://claude.ai/artifact/9F8Gbxy2Qjw3uofXYvMo39" target="_blank" rel="noopener">Pagar por Bizum</a>
+            </div>
+            <button type="button" id="pay-btn" class="btn big">Pagar por Bizum</button>
+            <p class="warn" id="warn" role="alert">Rellena todos los datos de envío para poder continuar.</p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+  <footer class="wrap foot"><b>Noha</b></footer>
+</div>
+
+<script>
+(function () {
+  var PRODUCTS = {
+    reloj:   { nombre: 'Reloj eléctrico',   precio: '40€' },
+    airpods: { nombre: 'Airpods 4',         precio: '50€' },
+    bl108:   { nombre: 'Auriculares BL108', precio: '37€' }
+  };
+  var FIELDS = ['nombre', 'email', 'telefono', 'direccion', 'cp'];
+  var submitted = false;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var vTienda = $('view-tienda'), vPedido = $('view-pedido');
+
+  function currentProduct() {
+    var r = document.querySelector('input[name="producto"]:checked');
+    return r ? r.value : 'reloj';
+  }
+  function empty(id) { return !$(id).value.trim(); }
+
+  function update() {
+    var any = false;
+    FIELDS.forEach(function (id) {
+      var isEmpty = empty(id);
+      if (isEmpty) any = true;
+      document.querySelector('[data-f="' + id + '"]').classList.toggle('bad', submitted && isEmpty);
+    });
+    var p = PRODUCTS[currentProduct()];
+    $('prod-nombre').textContent = p.nombre;
+    $('prod-precio').textContent = p.precio;
+    $('bizum-box').classList.toggle('hidden', any);
+    $('pay-btn').classList.toggle('hidden', !any);
+    $('warn').style.display = (submitted && any) ? 'block' : 'none';
+  }
+
+  function route() {
+    var pedido = location.hash === '#pedido';
+    vTienda.classList.toggle('hidden', pedido);
+    vPedido.classList.toggle('hidden', !pedido);
+    window.scrollTo(0, 0);
+    if (pedido) update();
+  }
+
+  document.querySelectorAll('[data-product]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var r = document.querySelector('input[name="producto"][value="' + a.getAttribute('data-product') + '"]');
+      if (r) r.checked = true;
+    });
+  });
+  document.querySelectorAll('input[name="producto"]').forEach(function (r) { r.addEventListener('change', update); });
+  FIELDS.forEach(function (id) { $(id).addEventListener('input', update); });
+  $('pay-btn').addEventListener('click', function () { submitted = true; update(); });
+  $('copy').addEventListener('click', function () {
+    var btn = $('copy');
+    var done = function () { btn.textContent = 'Copiado'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('+34644702393').then(done, done);
+    } else { done(); }
+  });
+  window.addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>
